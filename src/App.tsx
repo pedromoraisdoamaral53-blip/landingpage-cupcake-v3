@@ -36,13 +36,13 @@ function Navbar() {
 
 function Hero() {
   return (
-    <section className="relative min-h-[100dvh] w-full flex flex-col md:flex-row items-center justify-between px-6 pt-32 pb-12 overflow-hidden gap-12">
-      <div className="flex-1 max-w-2xl z-10 relative md:pl-8">
+    <section className="relative min-h-screen w-full flex flex-col lg:flex-row items-center justify-center px-6 pt-24 pb-12 overflow-hidden gap-8 lg:gap-12">
+      <div className="flex-1 max-w-2xl z-10 relative lg:pl-8 text-center lg:text-left">
         <motion.div
            initial={{ opacity: 0, x: -50 }}
            animate={{ opacity: 1, x: 0 }}
            transition={{ staggerChildren: 0.1 }}
-           className="flex flex-col gap-6"
+           className="flex flex-col gap-4 md:gap-6"
         >
           <motion.span 
             className="text-green-organic uppercase tracking-[0.2em] text-xs font-bold"
@@ -52,7 +52,7 @@ function Hero() {
             Edição Limitada
           </motion.span>
           <motion.h1 
-            className="text-5xl md:text-7xl font-sans font-black tracking-tighter leading-[0.9] text-purple-deep"
+            className="text-4xl md:text-7xl font-sans font-black tracking-tighter leading-[0.9] text-purple-deep"
           >
             Puro,
             <br />
@@ -60,11 +60,11 @@ function Hero() {
             <br />
             Artesanal.
           </motion.h1>
-          <motion.p className="text-lg text-purple-deep/70 max-w-[45ch] leading-relaxed font-light">
+          <motion.p className="text-base md:text-lg text-purple-deep/70 max-w-[45ch] leading-relaxed font-light mx-auto lg:mx-0">
             Descubra a refrescância absoluta. Nossa fórmula em visualização explodida: 
             polpa pura da Amazônia, textura aveludada e montagem milimétrica.
           </motion.p>
-          <motion.div className="flex items-center gap-4 mt-8"
+          <motion.div className="flex items-center justify-center lg:justify-start gap-4 mt-4 md:mt-8"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -72,7 +72,7 @@ function Hero() {
              <motion.button 
                 whileHover={{ scale: 0.98 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-green-organic text-primary-bg px-8 py-4 rounded-full font-bold tracking-tight shadow-[0_20px_40px_-15px_rgba(43,112,66,0.6)] flex items-center gap-2"
+                className="bg-green-organic text-primary-bg px-6 py-3 md:px-8 md:py-4 rounded-full font-bold tracking-tight shadow-[0_20px_40px_-15px_rgba(43,112,66,0.6)] flex items-center gap-2 text-sm md:text-base"
               >
                 Inicie sua Experiência
                 <ArrowUpRight size={20} weight="bold" />
@@ -81,7 +81,7 @@ function Hero() {
         </motion.div>
       </div>
       
-      <div className="flex-1 w-full h-[60vh] md:h-[90vh] relative z-0 md:-mr-12 rounded-[2.5rem] overflow-hidden bg-purple-deep/5 border border-white max-w-4xl shadow-2xl">
+      <div className="flex-1 w-full aspect-square md:aspect-video lg:aspect-auto lg:h-[80vh] relative z-0 rounded-[2.5rem] overflow-hidden bg-purple-deep/5 border border-white max-w-4xl shadow-2xl">
          <motion.video 
             initial={{ scale: 1.1, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -95,7 +95,7 @@ function Hero() {
             preload="auto"
             className="absolute inset-0 w-full h-full object-cover object-center"
          />
-         <div className="absolute inset-0 bg-gradient-to-r from-primary-bg via-transparent to-transparent opacity-40 md:opacity-20 pointer-events-none" />
+         <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-primary-bg lg:via-transparent to-transparent opacity-40 lg:opacity-20 pointer-events-none" />
       </div>
     </section>
   )
