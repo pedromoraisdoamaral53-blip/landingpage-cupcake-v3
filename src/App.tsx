@@ -87,11 +87,14 @@ function Hero() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
             src="/acai_bowl.mp4" 
+            poster="/acai-copo.jpg"
             autoPlay 
             loop 
             muted 
+            defaultMuted
             playsInline
-            className="absolute inset-0 w-full h-full object-cover object-center translate-x-4 md:translate-x-0"
+            preload="auto"
+            className="absolute inset-0 w-full h-full object-cover object-center"
          />
          <div className="absolute inset-0 bg-gradient-to-r from-primary-bg via-transparent to-transparent opacity-40 md:opacity-20 pointer-events-none" />
       </div>
@@ -101,10 +104,10 @@ function Hero() {
 
 function Features() {
   const feats = [
-    { title: "Polpa Pura", icon: Drop, desc: "Extraída a frio, preservando antioxidantes.", delay: 0 },
-    { title: "Colheita Orgânica", icon: Plant, desc: "Frutas selecionadas diariamente para máxima vida útil.", delay: 0.1 },
-    { title: "Granola Nativa", icon: Grains, desc: "Assada lentamente com mel selvagem.", delay: 0.2 },
-    { title: "Engenharia Fria", icon: Sparkle, desc: "Processo milimétrico de camadas resfriadas.", delay: 0.3 }
+    { title: "Polpa Pura", icon: Drop, desc: "Extraída a frio, preservando antioxidantes.", delay: 0, image: "/polpa-pura.jpg" },
+    { title: "Colheita Orgânica", icon: Plant, desc: "Frutas selecionadas diariamente para máxima vida útil.", delay: 0.1, image: "/colheita.jpg" },
+    { title: "Granola Nativa", icon: Grains, desc: "Assada lentamente com mel selvagem.", delay: 0.2, image: "/granola.jpg" },
+    { title: "Engenharia Fria", icon: Sparkle, desc: "Processo milimétrico de camadas resfriadas.", delay: 0.3, image: "/engenharia.jpg" }
   ]
 
   return (
@@ -126,12 +129,15 @@ function Features() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ delay: f.delay }}
-            className="group isolate relative bg-white rounded-[2rem] p-8 min-h-[250px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.03)] border border-slate-100/50 hover:shadow-[0_20px_40px_-15px_rgba(43,112,66,0.1)] hover:border-green-organic/20 transition-all duration-500"
+            className="group isolate relative bg-white rounded-[2rem] overflow-hidden min-h-[350px] shadow-[0_20px_40px_-15px_rgba(0,0,0,0.03)] border border-slate-100/50 hover:shadow-[0_20px_40px_-15px_rgba(43,112,66,0.1)] hover:border-green-organic/20 transition-all duration-500 flex flex-col"
           >
-            <div className="absolute top-8 right-8 text-green-organic opacity-20 group-hover:opacity-100 group-hover:scale-110 transition-all duration-500">
-               <f.icon size={32} weight="duotone" />
+            <div className="h-48 w-full relative overflow-hidden bg-slate-50">
+               <img src={f.image} alt={f.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+               <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-3 rounded-full text-green-organic shadow-sm">
+                  <f.icon size={24} weight="duotone" />
+               </div>
             </div>
-            <div className="mt-auto h-full flex flex-col justify-end">
+            <div className="p-8 flex flex-col flex-1 bg-white">
                <h3 className="text-xl font-bold text-purple-deep mb-2">{f.title}</h3>
                <p className="text-sm text-purple-deep/70 leading-relaxed">{f.desc}</p>
             </div>
@@ -144,9 +150,9 @@ function Features() {
 
 function Gallery() {
   const images = [
-      "https://images.unsplash.com/photo-1556881286-fc6915169721?auto=format&fit=crop&q=80&w=800&h=1200", 
-      "https://images.unsplash.com/photo-1616683832103-f3c5521b44d3?auto=format&fit=crop&q=80&w=800&h=800",
-      "https://images.unsplash.com/photo-1596541655761-94943f60f69a?auto=format&fit=crop&q=80&w=1200&h=800"
+      "/acai-copo.jpg", 
+      "/macro-verde.jpg",
+      "/macro-granola.jpg"
   ];
   return (
     <section className="py-24 px-6 w-full max-w-7xl mx-auto overflow-hidden">
